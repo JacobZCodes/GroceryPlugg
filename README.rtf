@@ -1,0 +1,27 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 README\
+The overall flow for GroceryPlugg is broken into two parts: a backend that initially scrapes data & uploads the data to a MySQL DB, and a frontend using Unity that allows for user input and interacts with said DB.\
+\
+BACKEND\
+Each Aldi.py, ralphs.py, target.py scrapes the respective websites for groceries using Selenium/BeautifulSoup.\
+\
+dbOperations.py allows me to interact with the MySQL DB directly while I\'92m scraping.\
+\
+createTables.py is run periodically to create tables as I need them (if I want to expand to more stores, etc.).\
+\
+grocery_list.py defines a predefined list of grocery keywords that are used to scrape the different websites.\
+\
+*.html files are for debugging purposes, these are all the html files that failed to scrape from Target. I kept them in my directory for debugging purposes so I can analyze them and see why my scraper failed.\
+\
+FRONTEND\
+Built with Unity which has a C# backend that connects to the MySQL DB. The frontend has three main pages (called panels in Unity) corresponding to a main landing page, an intermediate page where users can examine their cart, and a final results page showing the final cost.\
+\
+As users enter text into the text entry field, it autocompletes to our set of predefined so that users know what we do/don\'92t have. When the user hits the \'93checkout\'94 button, the main logic running behind the scenes is found in \'93OnCheckOut.cs\'94 which calls the method \'93public void CheckOut\'94. CheckOut parses the user-inputted data into a list of strings and then calls this SQL line "SELECT instanceName, price FROM \{tableName\} WHERE grocery = '\{grocery\}' ORDER BY price LIMIT 1\'94; for each of the user\'92s inputted groceries. So if we run this SQL line a bunch of times we get something like \'93joe\'92s eggs, 2.99\'94, \'93sam\'92s bacon, 4.99\'94 so my code stores all this information into a list for each of my tables (target, Ralphs, Aldi) and then loops through the list and adds up all the prices to get a total price. Whichever store has the lowest total price gets displayed in the final output.\
+\
+}
