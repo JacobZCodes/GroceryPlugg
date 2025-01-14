@@ -49,7 +49,7 @@ Simply use the interface to enter the grocery items you wish to search for, hit 
 
 - **Search in Action**  
   To see the search functionality in action, watch the following video showing how users can enter grocery items, get autocomplete suggestions, and compare prices:  
-  [Search in Action](./in-action.mp4)  
+  ![Search in Action](./in-action.gif)  
 
 - **Final Receipt**  
   Here's a screenshot of the final "receipt" showing the selected store and the price breakdown for each grocery item:  
