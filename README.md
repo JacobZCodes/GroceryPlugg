@@ -47,5 +47,4 @@ Simply use the interface to enter the grocery items you wish to search for, hit 
 
 ## Screenshots
 - **Final Receipt**  
-  Here's a screenshot of the final "receipt" showing the selected store and the price breakdown for each grocery item:  
   ![Final Receipt](./receipt.png)
